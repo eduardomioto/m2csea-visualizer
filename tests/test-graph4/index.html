@@ -1,0 +1,81 @@
+
+<!doctype html>
+<meta charset="utf-8">
+
+<!-- load D3js -->
+<script src="d3.js"></script>
+
+<!-- load D3plus after D3js -->
+<script src="d3plus.full.js"></script>
+
+<script src="topojson.js"></script>
+
+
+<!-- create container element for visualization -->
+<div id="viz"></div>
+
+<script>
+
+
+    var nodes = [
+        {"name":"microservice_1","color":"#dedede", "in":"0", "out":"2", "criticality":"1"},
+        {"name":"microservice_2","color":"#dedede", "in":"2", "out":"1", "criticality":"3.5"},
+        {"name":"microservice_3","color":"#dedede", "in":"3", "out":"1", "criticality":"5"},
+        {"name":"microservice_4","color":"#dedede", "in":"1", "out":"1", "criticality":"2"},
+        {"name":"microservice_5","color":"#dedede", "in":"1", "out":"2", "criticality":"2.5"},
+        {"name":"microservice_6","color":"#dedede", "in":"1", "out":"1", "criticality":"2"},
+        {"name":"microservice_7","color":"#dedede", "in":"2", "out":"1", "criticality":"3.5"},
+        {"name":"microservice_8","color":"#dedede", "in":"1", "out":"1", "criticality":"2"},
+        {"name":"microservice_9","color":"#dedede", "in":"1", "out":"2", "criticality":"2.5"},
+        {"name":"microservice_10","color":"#dedede", "in":"0", "out":"1", "criticality":"0.5"},
+        {"name":"microservice_11","color":"#de002a", "in":"4", "out":"2", "criticality":"7"},
+        {"name":"microservice_12","color":"#dedede", "in":"2", "out":"2", "criticality":"4"},
+        {"name":"microservice_13","color":"#dedede", "in":"2", "out":"2", "criticality":"4"},
+        {"name":"microservice_14","color":"#dedede", "in":"0", "out":"1", "criticality":"0.5"},
+        {"name":"microservice_15","color":"#dedede", "in":"0", "out":"1", "criticality":"0.5"}
+       ];
+
+    var edges = [
+        {"source":"microservice_1","target":"microservice_11"},
+        {"source":"microservice_1","target":"microservice_2"},
+        {"source":"microservice_2","target":"microservice_3"},
+        {"source":"microservice_3","target":"microservice_2"},
+        {"source":"microservice_4","target":"microservice_11"},
+        {"source":"microservice_5","target":"microservice_3"},
+        {"source":"microservice_5","target":"microservice_6"},
+        {"source":"microservice_6","target":"microservice_7"},
+        {"source":"microservice_7","target":"microservice_13"},
+        {"source":"microservice_8","target":"microservice_12"},
+        {"source":"microservice_9","target":"microservice_12"},
+        {"source":"microservice_9","target":"microservice_11"},
+        {"source":"microservice_10","target":"microservice_9"},
+        {"source":"microservice_11","target":"microservice_5"},
+        {"source":"microservice_11","target":"microservice_7"},
+        {"source":"microservice_12","target":"microservice_5"},
+        {"source":"microservice_12","target":"microservice_8"},
+        {"source":"microservice_13","target":"microservice_3"},
+        {"source":"microservice_13","target":"microservice_7"},
+        {"source":"microservice_14","target":"microservice_13"},
+        {"source":"microservice_15","target":"microservice_11"}
+    ]
+
+    // instantiate d3plus
+    var visualization = d3plus.viz()
+        .container("#viz")  // container DIV to hold the visualization
+        .type("network")    // visualization type
+        .data(nodes)  // sample dataset to attach to nodes
+        .edges(edges) // list of node connections
+        .edges({
+            "arrows": true,
+            "label": "depends"
+        })
+         .color({
+            "primary":"#08d212",
+            "value":"color"
+         })
+        .tooltip({"value":["name", "in", "out", "criticality"]})
+        .nodes({"overlap":"0.5"})
+        .id("name")         // key for which our data is unique on
+        .draw()             // finally, draw the visualization!
+
+</script>

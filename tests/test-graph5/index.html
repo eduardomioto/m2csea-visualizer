@@ -1,0 +1,73 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <title>Microservice Critical Path Discovery :: Finder View Module</title>
+</head>
+
+<body>
+<div id="graph">
+</div>
+<div role="navigation" class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header col-sm-12 col-md-12">
+                <div class="logo-well">
+                    <a href="http://neo4j.com/developer-resources">
+                        <img src="assets/images/logo-white.svg" alt="Neo4j World's Leading Graph Database" id="logo">
+                    </a>
+                </div>
+                <div class="navbar-brand">
+                    <div class="brand">MCPD - Neo4J</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">Search Results</div>
+            <table id="results" class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>Microservice</th>
+                    <th>Version</th>
+                    <th>Incoming</th>
+                    <th>Outgoing</th>
+                    <th>Critical</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="assets/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        function search() {
+            $.get("/findAll",
+                    function (data) {
+                        var $list = $("table#results tbody").empty();
+
+                        if (!data) return;
+                        data.forEach(function (service) {
+                            $list.append("<tr>");
+                            $list.append("<td>" + service.name + "</td>");
+                            $list.append("<td>" + service.version + "</td>");
+                            $list.append("<td>" + service.version + "</td>");
+                            $list.append("<td>" + service.version + "</td>");
+                            $list.append("<td>" + service.version + "</td>");
+                            $list.append("</tr>");
+                        });
+                    }, "json");
+            return false;
+        }
+        search();
+    })
+</script>
+</body>
+</html>

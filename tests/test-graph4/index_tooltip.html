@@ -1,0 +1,133 @@
+
+<!doctype html>
+<meta charset="utf-8">
+
+<!-- load D3js -->
+<script src="//d3plus.org/js/d3.js"></script>
+
+<!-- load D3plus after D3js -->
+<script src="//d3plus.org/js/d3plus.js"></script>
+
+<!-- create container element for visualization -->
+<div id="viz"></div>
+
+<script>
+
+
+    var nodes = [
+        {"name":"microservice_1", "criticality":1},
+        {"name":"microservice_2", "criticality":2},
+        {"name":"microservice_3", "criticality":3},
+        {"name":"microservice_4", "criticality":4},
+        {"name":"microservice_5", "criticality":5},
+        {"name":"microservice_6", "criticality":6},
+        {"name":"microservice_7", "criticality":7},
+        {"name":"microservice_8", "criticality":8},
+        {"name":"microservice_9", "criticality":9},
+        {"name":"microservice_10", "criticality":10},
+        {"name":"microservice_11", "criticality":10},
+        {"name":"microservice_12", "criticality":10},
+        {"name":"microservice_13", "criticality":10},
+        {"name":"microservice_14", "criticality":10},
+        {"name":"microservice_15", "criticality":10},
+        {"name":"microservice_16", "criticality":10},
+        {"name":"microservice_17", "criticality":10},
+        {"name":"microservice_18", "criticality":10},
+        {"name":"microservice_19", "criticality":10},
+        {"name":"microservice_20", "criticality":10},
+        {"name":"microservice_21", "criticality":10},
+        {"name":"microservice_22", "criticality":10},
+        {"name":"microservice_23", "criticality":10},
+        {"name":"microservice_24", "criticality":10},
+        {"name":"microservice_25", "criticality":10},
+        {"name":"microservice_26", "criticality":10},
+        {"name":"microservice_27", "criticality":10},
+        {"name":"microservice_28", "criticality":10},
+        {"name":"microservice_29", "criticality":10},
+        {"name":"microservice_30", "criticality":10}];
+
+    var edges = [
+        {"source":"microservice_1","target":"microservice_11"},
+        {"source":"microservice_1","target":"microservice_2"},
+        {"source":"microservice_1","target":"microservice_4"},
+        {"source":"microservice_1","target":"microservice_3"},
+        {"source":"microservice_2","target":"microservice_3"},
+        {"source":"microservice_2","target":"microservice_6"},
+        {"source":"microservice_2","target":"microservice_7"},
+        {"source":"microservice_3","target":"microservice_11"},
+        {"source":"microservice_3","target":"microservice_2"},
+        {"source":"microservice_4","target":"microservice_11"}, {"source":"microservice_4","target":"microservice_4"},
+        {"source":"microservice_5","target":"microservice_3"},  {"source":"microservice_5","target":"microservice_6"},
+        {"source":"microservice_6","target":"microservice_3"},  {"source":"microservice_6","target":"microservice_7"},
+        {"source":"microservice_7","target":"microservice_13"},
+        {"source":"microservice_8","target":"microservice_9"}, {"source":"microservice_8","target":"microservice_12"},
+        {"source":"microservice_9","target":"microservice_12"}, {"source":"microservice_9","target":"microservice_11"},
+        {"source":"microservice_10","target":"microservice_24"},
+        {"source":"microservice_11","target":"microservice_4"}, {"source":"microservice_11","target":"microservice_9"},
+        {"source":"microservice_12","target":"microservice_5"}, {"source":"microservice_12","target":"microservice_8"},
+        {"source":"microservice_13","target":"microservice_6"}, {"source":"microservice_13","target":"microservice_7"},
+        {"source":"microservice_14","target":"microservice_16"},
+        {"source":"microservice_15","target":"microservice_16"},
+        {"source":"microservice_16","target":"microservice_3"}, {"source":"microservice_16","target":"microservice_6"},
+        {"source":"microservice_17","target":"microservice_3"}, {"source":"microservice_17","target":"microservice_6"},
+        {"source":"microservice_18","target":"microservice_16"},
+        {"source":"microservice_19","target":"microservice_11"},
+        {"source":"microservice_20","target":"microservice_12"},
+        {"source":"microservice_21","target":"microservice_10"},
+        {"source":"microservice_22","target":"microservice_1"},
+        {"source":"microservice_23","target":"microservice_6"},
+        {"source":"microservice_24","target":"microservice_12"},
+        {"source":"microservice_25","target":"microservice_21"},
+        {"source":"microservice_26","target":"microservice_29"},
+        {"source":"microservice_27","target":"microservice_16"},
+        {"source":"microservice_28","target":"microservice_6"},
+        {"source":"microservice_29","target":"microservice_26"}
+    ];
+
+    var positions = [
+        {"name":"microservice_1", "x": 0, "y": 1},
+        {"name":"microservice_2", "x": 3, "y": 3},
+        {"name":"microservice_3", "x": 6, "y": 2},
+        {"name":"microservice_4", "x": 9, "y": 3},
+        {"name":"microservice_5", "x": 12, "y": 2},
+        {"name":"microservice_6", "x": 15, "y": 3},
+        {"name":"microservice_7", "x": 18, "y": 2},
+        {"name":"microservice_8", "x": 21, "y": 3},
+        {"name":"microservice_9", "x": 24, "y": 2},
+        {"name":"microservice_10", "x": 27, "y": 3},
+        {"name":"microservice_11", "x": 0, "y": 6},
+        {"name":"microservice_12", "x": 3, "y": 9},
+        {"name":"microservice_13", "x": 6, "y": 7},
+        {"name":"microservice_14", "x": 9, "y": 6},
+        {"name":"microservice_15", "x": 12, "y": 9},
+        {"name":"microservice_16", "x": 10, "y": 7},
+        {"name":"microservice_17", "x": 10, "y": 9},
+        {"name":"microservice_18", "x": 21, "y": 7},
+        {"name":"microservice_19", "x": 24, "y": 9},
+        {"name":"microservice_20", "x": 27, "y": 7},
+        {"name":"microservice_21", "x": 0, "y": 12},
+        {"name":"microservice_22", "x": 3, "y": 15},
+        {"name":"microservice_23", "x": 6, "y": 11},
+        {"name":"microservice_24", "x": 9, "y": 15},
+        {"name":"microservice_25", "x": 12, "y": 11},
+        {"name":"microservice_26", "x": 15, "y": 15},
+        {"name":"microservice_27", "x": 18, "y": 12},
+        {"name":"microservice_28", "x": 21, "y": 15},
+        {"name":"microservice_29", "x": 24, "y": 11},
+        {"name":"microservice_30", "x": 27, "y": 15}
+    ];
+
+    // instantiate d3plus
+    var visualization = d3plus.viz()
+        .container("#viz")  // container DIV to hold the visualization
+        .type("network")    // visualization type
+        .data(nodes)  // sample dataset to attach to nodes
+        .nodes(positions)
+        .edges(edges) // list of node connections
+        .edges({"arrows": true},{"color":"#575757"})
+        .size("criticality")
+        //.tooltip(["name", "value", "year", "gender"])
+        .id("name")         // key for which our data is unique on
+        .draw()             // finally, draw the visualization!
+
+</script>
