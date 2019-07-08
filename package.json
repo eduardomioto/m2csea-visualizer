@@ -1,0 +1,13 @@
+{
+    "name": "rest-benefits",
+    "version": "1.0.0",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "fs": "0.0.1-security",
+        "http": "0.0.0",
+        "path": "^0.12.7"
+    }
+}
