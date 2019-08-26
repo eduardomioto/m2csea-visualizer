@@ -1,4 +1,4 @@
-M2CSEA - Multicriteria Microservice Criticality Suggestion for Established Architectures - Visualizer Module
+M2CSEA - Visualizer Module
 --------------
 [![Build Status](https://travis-ci.org/eduardomioto/mc2pd-visualizer.svg?branch=master)](https://travis-ci.org/eduardomioto/mc2pd-visualizer)
 
