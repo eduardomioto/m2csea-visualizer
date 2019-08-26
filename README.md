@@ -1,4 +1,4 @@
-MC2PD - Microservice Communication Critical Path Discovery - Visualizer Module
+M2CSEA - Multicriteria Microservice Criticality Suggestion for Established Architectures - Visualizer Module
 --------------
 [![Build Status](https://travis-ci.org/eduardomioto/mc2pd-visualizer.svg?branch=master)](https://travis-ci.org/eduardomioto/mc2pd-visualizer)
 
