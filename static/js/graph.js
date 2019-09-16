@@ -4,7 +4,7 @@ $(document).ready(function () {
 
     $.ajax({
         type: "GET",
-        url: 'http://localhost:19090/graph',
+        url: 'http://localhost:19100/graph', 
         dataType: 'json',
         async: false,
         success: function (data) {
