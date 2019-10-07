@@ -110,3 +110,7 @@ body {
 #ex1Slider .slider-selection {
   background: #BABABA;
 }
+
+.navbar-brand-extended{
+  font-size: 15px;
+}
