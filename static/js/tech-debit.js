@@ -3,7 +3,7 @@ $(document).ready(function () {
 
     call();
     $(document).ready(function() {
-        setInterval(call, 5000);
+        setInterval(call, 10000);
     });
 
     function call(){
