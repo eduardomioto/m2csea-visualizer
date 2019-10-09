@@ -29,18 +29,38 @@ $(document).ready(function () {
     }
 
     function populateCriticaliTable(id, microservice, cpu, ram){
-        var newRow = "";
+        var newRow = "<tr>";
+        
         if(id === "0"){
-            newRow = "<tr class=\".danger\">";
-
+            newRow +="<td>"+ microservice + "</td>";
+            newRow +="<td><span class=\"label label-danger\">Most Critical</span></td>";
             $("#mostCritical").html(microservice);
         }else{
-            newRow = "<tr>";
+            newRow +="<td>"+ microservice + "</td>";
+            newRow +="<td></td>";
         }
 
-        newRow +="<td>"+ microservice + "</td>";
-        newRow +="<td>"+ cpu + "%</td>";
-        newRow +="<td>"+ ram + "%</td>";
+        //success
+        //warning
+        //danger
+
+
+        newRow +="<td> " + cpu + " %";
+        newRow +="<div class=\"progress\">";
+        newRow +="<div class=\"progress-bar progress-bar-success\" role=\"progressbar\" aria-valuenow=\"" + cpu + "\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: " + cpu + "0%;\">";
+        newRow +="<span class=\"sr-only\">" + cpu + " % Complete (success)</span>";
+        newRow +="</div>";
+        newRow +="</div>";
+        newRow +="</td>";
+
+        newRow +="<td>"+ ram + "%";
+        newRow +="<div class=\"progress\">";
+        newRow +="<div class=\"progress-bar progress-bar-success\" role=\"progressbar\" aria-valuenow=\"" + ram + "\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: " + ram + "0%;\">";
+        newRow +="<span class=\"sr-only\">" + ram + " % Complete (success)</span>";
+        newRow +="</div>";
+        newRow +="</div>";
+        newRow +="</td>";
+
         newRow += "</tr>";
         return newRow;
     }

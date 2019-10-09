@@ -30,16 +30,17 @@ $(document).ready(function () {
 
     function populateCriticaliTable(id, microservice, efforInMinutes){
         
-        var newRow = "";
-        if(id === "0"){
-            newRow = "<tr class=\".danger\">";
+        var newRow = "<tr>";
 
+        if(id === "0"){
+            newRow +="<td>"+ microservice + "</td>";
+            newRow +="<td><span class=\"label label-danger\">Most Critical</span></td>";
             $("#mostCritical").html(microservice);
         }else{
-            newRow = "<tr>";
+            newRow +="<td>"+ microservice + "</td>";
+            newRow +="<td></td>";
         }
 
-        newRow +="<td>"+ microservice + "</td>";
         newRow +="<td>"+ efforInMinutes + " minutes</td>";
         newRow += "</tr>";
         return newRow;
