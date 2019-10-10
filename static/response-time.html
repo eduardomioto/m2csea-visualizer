@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bars-square.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="http://seiyria.com/bootstrap-slider/css/bootstrap-slider.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand navbar-brand-extended" href="index.html">M2CSEA - Multicriteria Microservice
+                Criticality Suggestion for Established Architectures</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="graph-menu.html">Interfaces Vision</a></li>
+                <li><a href="tech-debit.html">Tech Debit Vision</a></li>
+                <li><a href="resource-usage.html">Resouce Usage Vision</a></li>
+                <li><a href="response-time.html">Response Time Vision</a></li>
+                <li><a href="availability.html">Availability Vision</a></li>
+                <li><a href="multi-factor.html">Multiple Criteria</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Microservices</th>
+                    <th>Status</th>
+                    <th>Mean</th>
+                    <th>Average</th>
+                    <th>Mean Last 7 Days</th>
+                    <th>Average Last 7 Days</th>
+                </tr>
+                </thead>
+                <tbody id="microservicesTable">
+
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.barrating.min.js"></script>
+    <script type="text/javascript">
+        $('.square-rating').barrating('show', {
+            theme: 'bars-square',
+            showValues: true,
+            showSelectedRating: false
+        });
+    </script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/response-time.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.js"></script>
+
+</body>
+</html>
