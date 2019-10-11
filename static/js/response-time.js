@@ -10,7 +10,7 @@ $(document).ready(function () {
         console.log("new call")
         $.ajax({
                 type: "GET",
-                url: 'http://localhost:19199/microservices/responseTime',
+                url: 'http://localhost:19099/microservices/responseTime',
                 dataType: 'json',
                 async: false,
                 success: function (data) {
