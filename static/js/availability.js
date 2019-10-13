@@ -17,7 +17,12 @@ $(document).ready(function () {
                     console.log(data);
                     var newHtml = "";
                     for(var k in data) {
-                        var newRow = populateCriticaliTable(k, data[k].name, data[k].checksPassing, data[k].checksWarning, data[k].checksCritical);
+                        var newRow = populateCriticaliTable(
+                            k,
+                            data[k].name,
+                            data[k].checksPassing,
+                            data[k].checksWarning,
+                            data[k].checksCritical);
                         newHtml = newHtml + newRow;
                     }
                     $( "#microservicesTable" ).html(newHtml);
