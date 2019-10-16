@@ -10,14 +10,21 @@ $(document).ready(function () {
         console.log("new call")
         $.ajax({
                 type: "GET",
-                url: 'http://localhost:19099/microservices/issues/grouped',
+                url: 'http://localhost:19192/microservices/criticality/',
                 dataType: 'json',
                 async: false,
                 success: function (data) {
                     console.log(data);
                     var newHtml = "";
                     for(var k in data) {
-                        var newRow = populateCriticaliTable(k, data[k].project, data[k].efforInMinutes);
+                        var newRow = populateCriticaliTable(
+                             k,
+                             data[k].microservice,
+                             data[k].vision,
+                             data[k].criticalityFactor,
+                             data[k].criticalityResult,
+                             data[k].value                             
+                             );
                         newHtml = newHtml + newRow;
                     }
                     $( "#microservicesTable" ).html(newHtml);
@@ -28,7 +35,7 @@ $(document).ready(function () {
             });
     }
 
-    function populateCriticaliTable(id, microservice, efforInMinutes){
+    function populateCriticaliTable(id, microservice, vision, factor, result, value ){
         
         var newRow = "<tr>";
 
@@ -41,7 +48,11 @@ $(document).ready(function () {
             newRow +="<td></td>";
         }
 
-        newRow +="<td>"+ efforInMinutes + " minutes</td>";
+        newRow +="<td>"+ vision + "</td>";
+        newRow +="<td>"+ factor + "</td>";
+        newRow +="<td>"+ result + "</td>";
+        newRow +="<td>"+ value + "</td>";
+
         newRow += "</tr>";
         return newRow;
     }
