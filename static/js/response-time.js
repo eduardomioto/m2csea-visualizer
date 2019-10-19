@@ -21,8 +21,8 @@ $(document).ready(function () {
                             data[k].project, 
                             data[k].mean,
                             data[k].average,
-                            data[k].meanLastSevenDays,
-                            data[k].averageLastSevenDays);
+                            data[k].averageLastSevenDays,
+                            data[k].averageLastThirtyDays);
 
                         newHtml = newHtml + newRow;
                     }
@@ -34,7 +34,7 @@ $(document).ready(function () {
             });
     }
 
-    function populateCriticaliTable(id, microservice, mean, average, meanlastSevenDays, averagelastSevenDays){
+    function populateCriticaliTable(id, microservice, mean, average, averageLastSevenDays, averageLastThirtyDays){
         
         var newRow = "<tr>";
 
@@ -47,10 +47,9 @@ $(document).ready(function () {
             newRow +="<td></td>";
         }
 
-        newRow +="<td>"+ mean + " seconds</td>";
         newRow +="<td>"+ average + " seconds</td>";
-        newRow +="<td>"+ meanlastSevenDays + " seconds</td>";
-        newRow +="<td>"+ averagelastSevenDays + " seconds</td>";
+        newRow +="<td>"+ averageLastSevenDays + " seconds</td>";
+        newRow +="<td>"+ averageLastThirtyDays + " seconds</td>";
         newRow += "</tr>";
         return newRow;
     }

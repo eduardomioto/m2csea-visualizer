@@ -27,6 +27,9 @@ http.createServer(function (request, response) {
         case '.jpg':
             contentType = 'image/jpg';
             break;
+        case '.svg':
+            contentType = 'image/svg';
+            break;    
         case '.wav':
             contentType = 'audio/wav';
             break;
