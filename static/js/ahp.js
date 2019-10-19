@@ -45,11 +45,12 @@ $(document).ready(function () {
     }
 
     function populateRankingMap(rankingMap){        
-        var rankingMap = "";
+        var tableContent = "";
         for (var y in rankingMap) {
-            rankingMap += "<tr><th>" + y + "</th><td>"+ rankingMap[y] + "</td></tr>";       
+            var key = y.replace("_"," in comparison with ");
+            tableContent += "<tr><th>" + key + "</th><td>"+ rankingMap[y] + "</td></tr>";       
         }
-        return rankingMap;
+        return tableContent;
     }
 
     function populateCriticaliTable(pairs, consistencyRatio, consistencyIndex ){
