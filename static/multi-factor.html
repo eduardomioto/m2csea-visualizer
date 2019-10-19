@@ -38,11 +38,26 @@
 
     <div class="container-fluid content">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-2">
                 <h4>Multicriteria Analysis</h4>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <h4>Most Critical Microservice: <b id="mostCritical" class="red"></b></h4>
+            </div>
+            <div class="col-sm-4">
+                <b>Time Range:</b>
+                <select id="timeRangeSelect">
+                    <option value="1">1 day</option>
+                    <option value="7">7 days</option>
+                    <option value="14">14 days</option>
+                    <option value="30">1 month</option>
+                    <option value="60">2 months</option>
+                    <option value="90">3 months</option>
+                    <option value="120">4 months</option>
+                    <option value="150">5 months</option>
+                    <option value="180">6 months</option>
+                    <option value="365">1 year</option>
+                </select>
             </div>
         </div>
         <div class="row">
@@ -56,7 +71,6 @@
                             <th>Vision</th>
                             <th>Criticality Factor</th>
                             <th>Criticality Result</th>
-                            <th>Valor</th>
                         </tr>
                     </thead>
                     <tbody id="microservicesTable">
@@ -73,16 +87,32 @@
             </div>
 
         </div>
-        <div class="row">
-                <div class="col-sm-12">    
-                    <table class="table">
-                            <tbody id="ahpContent"></tbody>
-                    </table>
-               </div>
+
+        <div id="ahpContent">
+                <div class="row">
+                    <div class="col-sm-6">    
+                        <table class="table ahptable">
+                            <tbody id="ahpContentTable"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8">    
+                        <table class="table ahptable">
+                            <tbody id="rankingMap"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8">    
+                        <table class="table ahptable">
+                            <tbody id="weightsMap"></tbody>
+                        </table>
+                    </div>
+                </div>
         </div>
+       
         
-
-
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery.barrating.min.js"></script>
         <script src="js/bootstrap.min.js"></script>

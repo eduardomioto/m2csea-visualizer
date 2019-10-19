@@ -14,6 +14,7 @@ $(document).ready(function () {
                     data[k].visionA,
                     data[k].visionB,
                     data[k].rating);
+                
             }
         }, error: function (xhr, ajaxOptions, thrownError) {
             console.log(xhr.responseText);
@@ -30,22 +31,22 @@ $(document).ready(function () {
         newRow +="<input id=\"identifier_0.125_" + visionComparisonId + "\" type=\"radio\" name=\"" + visionComparisonId + "\" value=\"0.125\"> 1/8";
         newRow +="<input id=\"identifier_0.142_" + visionComparisonId + "\" type=\"radio\" name=\"" + visionComparisonId + "\" value=\"0.142\"> 1/7";
         newRow +="<input id=\"identifier_0.166_" + visionComparisonId + "\" type=\"radio\" name=\"" + visionComparisonId + "\" value=\"0.166\"> 1/6";
-        newRow +="<input id=\"identifier_0.200_" + visionComparisonId + "\" type=\"radio\" name=\"" + visionComparisonId + "\" value=\"0.200\"> 1/5";
-        newRow +="<input id=\"identifier_0.250_" + visionComparisonId + "\" type=\"radio\" name=\"" + visionComparisonId + "\" value=\"0.250\"> 1/4";
+        newRow +="<input id=\"identifier_0.2_" +   visionComparisonId + "\" type=\"radio\" name=\"" + visionComparisonId + "\" value=\"0.2\"> 1/5";
+        newRow +="<input id=\"identifier_0.250_" + visionComparisonId + "\" type=\"radio\" name=\"" + visionComparisonId + "\" value=\"0.25\"> 1/4";
         newRow +="<input id=\"identifier_0.333_" + visionComparisonId + "\" type=\"radio\" name=\"" + visionComparisonId + "\" value=\"0.333\"> 1/3";
-        newRow +="<input id=\"identifier_0.500_" + visionComparisonId + "\" type=\"radio\" name=\"" + visionComparisonId + "\" value=\"0.500\"> 1/2";
-        newRow +="<input id=\"identifier_1.0_" + visionComparisonId + "\" type=\"radio\" name=\"" + visionComparisonId + "\" value=\"1.0\"> 1";
-        newRow +="<input id=\"identifier_2.0_" + visionComparisonId + "\" type=\"radio\" name=\"" + visionComparisonId + "\" value=\"2.0\"> 2";
-        newRow +="<input id=\"identifier_3.0_" + visionComparisonId + "\" type=\"radio\" name=\"" + visionComparisonId + "\" value=\"3.0\"> 3";
-        newRow +="<input id=\"identifier_4.0_" + visionComparisonId + "\" type=\"radio\" name=\"" + visionComparisonId + "\" value=\"4.0\"> 4";
-        newRow +="<input id=\"identifier_5.0_" + visionComparisonId + "\" type=\"radio\" name=\"" + visionComparisonId + "\" value=\"5.0\"> 5";
-        newRow +="<input id=\"identifier_6.0_" + visionComparisonId + "\" type=\"radio\" name=\"" + visionComparisonId + "\" value=\"6.0\"> 6";
-        newRow +="<input id=\"identifier_7.0_" + visionComparisonId + "\" type=\"radio\" name=\"" + visionComparisonId + "\" value=\"7.0\"> 7";
-        newRow +="<input id=\"identifier_8.0_" + visionComparisonId + "\" type=\"radio\" name=\"" + visionComparisonId + "\" value=\"8.0\"> 8";
-        newRow +="<input id=\"identifier_9.0_" + visionComparisonId + "\" type=\"radio\" name=\"" + visionComparisonId + "\" value=\"9.0\"> 9";
+        newRow +="<input id=\"identifier_0.5_" +   visionComparisonId + "\" type=\"radio\" name=\"" + visionComparisonId + "\" value=\"0.5\"> 1/2";
+        newRow +="<input id=\"identifier_1_" +     visionComparisonId + "\" type=\"radio\" name=\"" + visionComparisonId + "\" value=\"1\"> 1";
+        newRow +="<input id=\"identifier_2_" +     visionComparisonId + "\" type=\"radio\" name=\"" + visionComparisonId + "\" value=\"2\"> 2";
+        newRow +="<input id=\"identifier_3_" +     visionComparisonId + "\" type=\"radio\" name=\"" + visionComparisonId + "\" value=\"3\"> 3";
+        newRow +="<input id=\"identifier_4_" +     visionComparisonId + "\" type=\"radio\" name=\"" + visionComparisonId + "\" value=\"4\"> 4";
+        newRow +="<input id=\"identifier_5_" +     visionComparisonId + "\" type=\"radio\" name=\"" + visionComparisonId + "\" value=\"5\"> 5";
+        newRow +="<input id=\"identifier_6_" +     visionComparisonId + "\" type=\"radio\" name=\"" + visionComparisonId + "\" value=\"6\"> 6";
+        newRow +="<input id=\"identifier_7_" +     visionComparisonId + "\" type=\"radio\" name=\"" + visionComparisonId + "\" value=\"7\"> 7";
+        newRow +="<input id=\"identifier_8_" +     visionComparisonId + "\" type=\"radio\" name=\"" + visionComparisonId + "\" value=\"8\"> 8";
+        newRow +="<input id=\"identifier_9_" +     visionComparisonId + "\" type=\"radio\" name=\"" + visionComparisonId + "\" value=\"9\"> 9";
         newRow += "</td>";
         newRow += "</tr>";
-        $( "#microservicesTable" ).append(newRow);     
+        $( "#microservicesTable" ).append(newRow);  
         $("input[name='"+visionComparisonId+"'][value='"+rating+"']").prop('checked', true);
     }
 
@@ -57,7 +58,7 @@ $(document).ready(function () {
 
     function saveUserVision(visionComparisonId, rating) {
         $.ajax({
-            url:"http://localhost:19092/microservices/vision/user/",
+            url:"http://localhost:19192/microservices/vision/user/",
             type:"POST",
             data: JSON.stringify({"userId": 1, "visionComparisonId": visionComparisonId, "rating" : rating }),
             contentType:"application/json; charset=utf-8",

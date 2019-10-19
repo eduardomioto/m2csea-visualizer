@@ -6,11 +6,17 @@ $(document).ready(function () {
         setInterval(call, 30000);
     });
 
+    $("#timeRangeSelect").change(function(){
+        call();
+    });
+
     function call(){
         console.log("new call")
+        var days = $("#timeRangeSelect").val();
+        console.log("days: " + days);
         $.ajax({
                 type: "GET",
-                url: 'http://localhost:19192/microservices/criticality/',
+                url: 'http://localhost:19192/microservices/criticality/days/' + days,
                 dataType: 'json',
                 async: false,
                 success: function (data) {
@@ -22,8 +28,7 @@ $(document).ready(function () {
                              data[k].microservice,
                              data[k].vision,
                              data[k].criticalityFactor,
-                             data[k].criticalityResult,
-                             data[k].value                             
+                             data[k].criticalityResult                 
                              );
                         newHtml = newHtml + newRow;
                     }
@@ -35,7 +40,7 @@ $(document).ready(function () {
             });
     }
 
-    function populateCriticaliTable(id, microservice, vision, factor, result, value ){
+    function populateCriticaliTable(id, microservice, vision, factor, result ){
         
         var newRow = "<tr>";
 
@@ -51,8 +56,7 @@ $(document).ready(function () {
         newRow +="<td>"+ vision + "</td>";
         newRow +="<td>"+ factor + "</td>";
         newRow +="<td>"+ result + "</td>";
-        newRow +="<td>"+ value + "</td>";
-
+       
         newRow += "</tr>";
         return newRow;
     }
