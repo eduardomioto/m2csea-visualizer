@@ -3,6 +3,10 @@ $(document).ready(function () {
     $( "#ahpContent" ).hide();
 
     call();
+
+    $("#showHideCalculusButton").click(function(){
+        $("#ahpContent").toggle();
+    });
    
     function call(){
         console.log("new call")
