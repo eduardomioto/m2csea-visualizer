@@ -10,7 +10,7 @@ $(document).ready(function () {
         console.log("new call")
         $.ajax({
                 type: "GET",
-                url: 'http://localhost:19099/microservices/responseTime',
+                url: 'http://localhost:19099/microservices/coverage',
                 dataType: 'json',
                 async: false,
                 success: function (data) {
@@ -19,9 +19,7 @@ $(document).ready(function () {
                     for(var k in data) {
                         var newRow = populateCriticaliTable(k,
                             data[k].project, 
-                            data[k].average,
-                            data[k].averageLastSevenDays,
-                            data[k].averageLastThirtyDays);
+                            data[k].coverage);
 
                         newHtml = newHtml + newRow;
                     }
@@ -33,7 +31,7 @@ $(document).ready(function () {
             });
     }
 
-    function populateCriticaliTable(id, microservice, average, averageLastSevenDays, averageLastThirtyDays){
+    function populateCriticaliTable(id, microservice, coverage){
         
         var newRow = "<tr>";
 
@@ -46,9 +44,7 @@ $(document).ready(function () {
             newRow +="<td></td>";
         }
 
-        newRow +="<td>"+ average + " seconds</td>";
-        newRow +="<td>"+ averageLastSevenDays + " seconds</td>";
-        newRow +="<td>"+ averageLastThirtyDays + " seconds</td>";
+        newRow +="<td>"+ coverage + " %</td>";
         newRow += "</tr>";
         return newRow;
     }
