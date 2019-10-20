@@ -68,5 +68,5 @@ http.createServer(function (request, response) {
         }
     });
 
-}).listen(18080);
-console.log('MC2PD Visualizer running at http://127.0.0.1:18080/');
+}).listen(7000);
+console.log('MC2PD Visualizer running at http://127.0.0.1:7000/');

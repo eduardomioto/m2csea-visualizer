@@ -6,11 +6,17 @@ $(document).ready(function () {
         setInterval(call, 10000);
     });
 
+    $("#timeRangeSelect").change(function(){
+        call();
+    });
+
     function call(){
         console.log("new call")
+        var days = $("#timeRangeSelect").val();
+        console.log("days: " + days);
         $.ajax({
                 type: "GET",
-                url: 'http://localhost:19099/microservices/healthchecks/',
+                url: 'http://localhost:19099/microservices/healthchecks/days/' + days,
                 dataType: 'json',
                 async: false,
                 success: function (data) {
@@ -20,9 +26,7 @@ $(document).ready(function () {
                         var newRow = populateCriticaliTable(
                             k,
                             data[k].name,
-                            data[k].checksPassing,
-                            data[k].checksWarning,
-                            data[k].checksCritical);
+                            data[k].downtimeOccurrences);
                         newHtml = newHtml + newRow;
                     }
                     $( "#microservicesTable" ).html(newHtml);
@@ -33,7 +37,7 @@ $(document).ready(function () {
             });
     }
 
-    function populateCriticaliTable(id, microservice, checksPassing, checksWarning, checksCritical){
+    function populateCriticaliTable(id, microservice, downtimeOccurrences){
         
         var newRow = "<tr>";
 
@@ -46,9 +50,7 @@ $(document).ready(function () {
             newRow +="<td></td>";
         }
 
-        newRow +="<td>"+ checksPassing + " checks</td>";
-        newRow +="<td>"+ checksWarning + " checks</td>";
-        newRow +="<td>"+ checksCritical + " checks</td>";
+        newRow +="<td>"+ downtimeOccurrences + " checks</td>";
         newRow += "</tr>";
         return newRow;
     }
