@@ -20,12 +20,12 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="index.html">Home</a></li>                    
-                <li><a href="graph-menu.html">Interdependence Vision</a></li>
-                <li><a href="tech-debit.html">Tech Debit Vision</a></li>
-                <li><a href="resource-usage.html">Resouce Usage Vision</a></li>
-                <li><a href="response-time.html">Response Time Vision</a></li>
-                <li><a href="availability.html">Availability Vision</a></li>
-                <li><a href="coverage.html">Unit Test Coverage Vision</a></li>                    
+                <li><a href="graph-menu.html">Interdependence Verification</a></li>
+                <li><a href="tech-debit.html">Tech Debit Verification</a></li>
+                <li><a href="resource-usage.html">Resouce Usage Verification</a></li>
+                <li><a href="response-time.html">Response Time Verification</a></li>
+                <li><a href="availability.html">Availability Verification</a></li>
+                <li><a href="coverage.html">Unit Test Coverage Verification</a></li>                    
                 <li><a href="user-input.html">Ranking</a></li>                    
                 <li><a href="multi-factor.html">Multiple Criteria</a></li> 
             </ul>
@@ -35,14 +35,29 @@
 
 
 <div class="container-fluid content">
+    
+    <div class="row">
+        <div class="col-sm-10">
+            <p>Please select the desired ranking between Verification A and Verification B, considering the numbers as exposed on help button</p>
+            <p>You may select a value on all comparisons listed.</p>
+        </div>
+        <div class="col-sm-2">
+                <a href="#helpModal" rel="modal:open">
+                    <button type="button" id="showHelp" class="btn btn-primary">
+                        Help
+                    </button>
+                </a>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-sm-12">
 
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th>Visão</th>
-                    <th>Visão</th>
+                    <th>Verification A</th>
+                    <th>Verification B</th>
                     <th>Ranking</th>
                 </tr>
                 </thead>
@@ -55,13 +70,67 @@
         </div>
     </div>
 
-
+    <div class="modal" id="helpModal">
+        <p>The values between 1/9 and 1/2 are the inverse of the values between 1 and 9</p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Ranking</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Equal Importance</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Equal to Moderate Importance</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Moderate Importance</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Moderate to Strong Importance</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>String Importance</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Strong to Very Strong Importance</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Very Strong Importance</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Very Strong to Extremely Strong Importance</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Extremely Strong Importance</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <a href="#" rel="modal:close">Close</a>
+    </div>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.barrating.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/user-vision.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.js"></script>
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
 
 </body>
 </html>

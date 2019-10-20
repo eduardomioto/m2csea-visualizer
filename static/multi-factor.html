@@ -22,12 +22,12 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="index.html">Home</a></li>                    
-                    <li><a href="graph-menu.html">Interdependence Vision</a></li>
-                    <li><a href="tech-debit.html">Tech Debit Vision</a></li>
-                    <li><a href="resource-usage.html">Resouce Usage Vision</a></li>
-                    <li><a href="response-time.html">Response Time Vision</a></li>
-                    <li><a href="availability.html">Availability Vision</a></li>
-                    <li><a href="coverage.html">Unit Test Coverage Vision</a></li>                    
+                    <li><a href="graph-menu.html">Interdependence Verification</a></li>
+                    <li><a href="tech-debit.html">Tech Debit Verification</a></li>
+                    <li><a href="resource-usage.html">Resouce Usage Verification</a></li>
+                    <li><a href="response-time.html">Response Time Verification</a></li>
+                    <li><a href="availability.html">Availability Verification</a></li>
+                    <li><a href="coverage.html">Unit Test Coverage Verification</a></li>                    
                     <li><a href="user-input.html">Ranking</a></li>                    
                     <li><a href="multi-factor.html">Multiple Criteria</a></li> 
                 </ul>
@@ -68,7 +68,7 @@
                         <tr>
                             <th>Microservices</th>
                             <th>Status</th>
-                            <th>Vision</th>
+                            <th>Verification</th>
                             <th>Criticality Factor</th>
                             <th>Criticality Result</th>
                         </tr>
@@ -89,27 +89,42 @@
         </div>
 
         <div id="ahpContent">
-                <div class="row">
-                    <div class="col-sm-6">    
-                        <table class="table ahptable">
-                            <tbody id="ahpContentTable"></tbody>
-                        </table>
-                    </div>
+            <div class="row">
+                <div class="col-sm-8">
+                    <table class="table table-striped ahptable">
+                        <thead>
+                            <tr>
+                                <th>Base Calculus Information</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ahpContentTable"></tbody>
+                    </table>
                 </div>
-                <div class="row">
-                    <div class="col-sm-8">    
-                        <table class="table ahptable">
-                            <tbody id="rankingMap"></tbody>
-                        </table>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-8">
+                    <table class="table table-striped ahptable">
+                        <thead>
+                            <tr>
+                                <th>Comparisons between Verifications</th>
+                            </tr>
+                        </thead>
+                        <tbody id="rankingMap"></tbody>
+                    </table>
                 </div>
-                <div class="row">
-                    <div class="col-sm-8">    
-                        <table class="table ahptable">
-                            <tbody id="weightsMap"></tbody>
-                        </table>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-8">
+                    <table class="table table-striped ahptable">
+                        <thead>
+                            <tr>
+                                <th>Verifications Ranking</th>
+                            </tr>
+                        </thead>
+                        <tbody id="weightsMap"></tbody>
+                    </table>
                 </div>
+            </div>
         </div>
        
         

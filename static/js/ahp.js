@@ -39,7 +39,7 @@ $(document).ready(function () {
 
         var tableContent = "";
         for (var x in weightsMap) {
-            tableContent += "<tr><th>" + x + "</th><td>"+ weightsMap[x] + "</td></tr>";       
+            tableContent += "<tr><td>" + x + "</td><td>"+ weightsMap[x] + "</td></tr>";       
         }
         return tableContent;
     }
@@ -48,15 +48,15 @@ $(document).ready(function () {
         var tableContent = "";
         for (var y in rankingMap) {
             var key = y.replace("_"," in comparison with ");
-            tableContent += "<tr><th>" + key + "</th><td>"+ rankingMap[y] + "</td></tr>";       
+            tableContent += "<tr><td>" + key + "</td><td>"+ rankingMap[y] + "</td></tr>";       
         }
         return tableContent;
     }
 
     function populateCriticaliTable(pairs, consistencyRatio, consistencyIndex ){
-        var newRow = "<tr><th>Pair Comparison</th><td>"+ pairs + "</td></tr>";
-        newRow +="<tr><th>Consistency Ratio</th><td>"+ consistencyRatio + "</td></tr>";
-        newRow +="<tr><th>Consistency Index</th><td>"+ consistencyIndex + "</td></tr>";
+        var newRow = "<tr><td>Pair Comparison</td><td>"+ pairs + "</td></tr>";
+        newRow +="<tr><td>Consistency Ratio</td><td>"+ consistencyRatio + "</td></tr>";
+        newRow +="<tr><td>Consistency Index</td><td>"+ consistencyIndex + "</td></tr>";
         return newRow;
     }
  

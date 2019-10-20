@@ -10,7 +10,7 @@ $(document).ready(function () {
         console.log("new call")
         $.ajax({
                 type: "GET",
-                url: 'http://localhost:19099/microservices/coverage',
+                url: 'http://localhost:19099/microservices/unitTestCoverage/',
                 dataType: 'json',
                 async: false,
                 success: function (data) {
@@ -18,7 +18,7 @@ $(document).ready(function () {
                     var newHtml = "";
                     for(var k in data) {
                         var newRow = populateCriticaliTable(k,
-                            data[k].project, 
+                            data[k].microservice, 
                             data[k].coverage);
 
                         newHtml = newHtml + newRow;
