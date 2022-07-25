@@ -3,7 +3,7 @@ M2CSEA - Visualizer Module
 [![Build Status](https://travis-ci.org/eduardomioto/mc2pd-visualizer.svg?branch=master)](https://travis-ci.org/eduardomioto/mc2pd-visualizer)
 
 
-####### References:
+###### References:
 ---------
 - [1] https://github.com/alexandersimoes/d3plus/wiki/Network-Utilities
 - [2] https://bost.ocks.org/mike/miserables/
@@ -16,7 +16,7 @@ M2CSEA - Visualizer Module
 - [9] https://i.pinimg.com/originals/6b/fb/c2/6bfbc2fcb5bda823f583688c185b2589.png
 - [10] https://themes.getbootstrap.com/products/dashboard
 
-####### Credits:
+###### Credits:
 ---------
 - [1] Image: https://www.flaticon.com/free-icon/line-chart_263094#term=graph&page=1&position=8
 - [2] Image: https://thenounproject.com/term/free/56321/
